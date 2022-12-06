@@ -1,0 +1,131 @@
+# POI
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poi-deployment
+  labels:
+    app: openhacks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poi
+  template:
+    metadata:
+      labels:
+        app: poi
+    spec:
+      containers:
+      # POI
+      - name: poi
+        image: registrynom9737.azurecr.io/openhack/poi:latest
+        ports:
+        - containerPort: 80
+        resources:
+          resources:
+          requests:
+            cpu: 250m
+            memory: 64Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+
+# TRIPS
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trips-deployment
+  labels:
+    app: openhacks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trips
+  template:
+    metadata:
+      labels:
+        app: trips
+    spec:
+      containers:
+      # TRIPS
+      - name: trips
+        image: registrynom9737.azurecr.io/openhack/trips:1.0
+        ports:
+        - containerPort: 81
+
+# FRONT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tripviewer-deployment
+  labels:
+    app: openhacks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tripviewer
+  template:
+    metadata:
+      labels:
+        app: tripviewer
+    spec:
+      containers:
+      # FRONT
+      - name: tripviewer
+        image: registrynom9737.azurecr.io/openhack/tripviewer:1.0
+        ports:
+        - containerPort: 82
+
+# USERS
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-java-deployment
+  labels:
+    app: openhacks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-java
+  template:
+    metadata:
+      labels:
+        app: user-java
+    spec:
+      containers:
+      # USERS
+      - name: user-java
+        image: registrynom9737.azurecr.io/openhack/user-java:latest
+        ports:
+        - containerPort: 83
+
+# USERS PROFILES
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-profile-deployment
+  labels:
+    app: openhacks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-profile
+  template:
+    metadata:
+      labels:
+        app: user-profile
+    spec:
+      containers:
+      # USERS PROFILES
+      - name: user-profile
+        image: registrynom9737.azurecr.io/openhack/userprofile:1.0
+        ports:
+        - containerPort: 84
