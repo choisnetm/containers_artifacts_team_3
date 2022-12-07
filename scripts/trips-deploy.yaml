@@ -22,7 +22,7 @@ spec:
       - name: trips
         image: registrynom9737.azurecr.io/openhack/trips:1.0
         ports:
-        - containerPort: 85
+        - containerPort: 80
         resources:
           requests:
             cpu: 250m
@@ -46,5 +46,5 @@ spec:
   ports:
   - name: trips-http
     protocol: TCP
-    port: 85
-    targetPort: 85
+    port: 80
+    targetPort: 80
