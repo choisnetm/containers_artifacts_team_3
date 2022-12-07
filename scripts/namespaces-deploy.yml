@@ -1,0 +1,16 @@
+# WEB
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: web
+  labels:
+    name: web
+
+---
+# API
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: api
+  labels:
+    name: api
