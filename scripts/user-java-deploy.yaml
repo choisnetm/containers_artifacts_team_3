@@ -25,10 +25,10 @@ spec:
         - containerPort: 80
         resources:
           requests:
-            cpu: 250m
+            cpu: 150m
             memory: 64Mi
           limits:
-            cpu: 500m
+            cpu: 200m
             memory: 256Mi
 ---
 # SERVICE
@@ -43,5 +43,5 @@ spec:
   ports:
   - name: user-java-http
     protocol: TCP
-    port: 80
+    port: 81
     targetPort: 80
