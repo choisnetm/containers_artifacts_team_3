@@ -29,6 +29,9 @@ spec:
           limits:
             cpu: 200m
             memory: 256Mi
+        envFrom:
+        - secretRef:
+            name: sql-secrets
 
 ---
 apiVersion: v1
