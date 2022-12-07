@@ -37,7 +37,7 @@ kind: Service
 metadata:
   name: tripviewer
 spec:
-  type: ClusterIP #LoadBalancer
+  type: LoadBalancer #ClusterIP
   selector:
     app: tripviewer
   ports:
