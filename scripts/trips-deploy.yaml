@@ -5,6 +5,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: trips-deployment
+  namespace: api
   labels:
     app: trips
 spec:
@@ -16,7 +17,6 @@ spec:
     metadata:
       labels:
         app: trips
-        namespace: api
     spec:
       containers:
       # TRIPS
