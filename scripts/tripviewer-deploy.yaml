@@ -4,7 +4,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: front
   name: tripviewer-deployment
   labels:
     app: tripviewer
@@ -36,7 +35,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: front
   name: tripviewer
 spec:
   type: ClusterIP #LoadBalancer

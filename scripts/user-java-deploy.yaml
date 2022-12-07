@@ -4,7 +4,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: api
   name: user-java-deployment
   labels:
     app: user-java
@@ -36,7 +35,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: api
   name: user-java
 spec:
   type: ClusterIP #LoadBalancer
