@@ -4,8 +4,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: api
-  name: user-profile-deployment
+  name: users-profiles-deployment
   labels:
     app: users-profiles
 spec:
@@ -23,7 +22,7 @@ spec:
       - name: users-profiles
         image: registrynom9737.azurecr.io/openhack/userprofile:1.0
         ports:
-        - containerPort: 8081
+        - containerPort: 80
         resources:
           requests:
             cpu: 250m
@@ -36,7 +35,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: api
   name: users-profiles
 spec:
   type: ClusterIP #LoadBalancer
@@ -46,4 +44,4 @@ spec:
   - name: users-profiles-http
     protocol: TCP
     port: 80
-    targetPort: 8081
+    targetPort: 80
