@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: poi-deployment
   labels:
-    app: poi-deployment
+    app: poi
 spec:
   replicas: 1
   selector:
@@ -17,30 +17,30 @@ spec:
     spec:
       containers:
       # POI
-      - name: poi-app
+      - name: poi
         image: registrynom9737.azurecr.io/openhack/poi:latest
         ports:
-        - containerPort: 82
+        - containerPort: 80
         resources:
           resources:
           requests:
-            cpu: 250m
+            cpu: 100m
             memory: 64Mi
           limits:
-            cpu: 500m
+            cpu: 200m
             memory: 256Mi
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: poi-app
+  name: poi
 spec:
   type: ClusterIP #LoadBalancer
   selector:
-    name: poi-app
+    name: poi
   ports:
   - name: poi-app-http
     protocol: TCP
     port: 82
-    targetPort: 82
+    targetPort: 80
