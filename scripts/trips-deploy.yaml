@@ -1,0 +1,47 @@
+# TRIPVIEWER
+---
+# POD
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trips-deployment
+  labels:
+    app: trips
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trips
+  template:
+    metadata:
+      labels:
+        app: trips
+    spec:
+      containers:
+      # USERS
+      - name: trips
+        image: registrynom9737.azurecr.io/openhack/trips:1.0
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+            memory: 64Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+---
+# SERVICE
+apiVersion: v1
+kind: Service
+metadata:
+  name: trips
+spec:
+  type: LoadBalancer #ClusterIP
+  selector:
+    app: trips
+  ports:
+  - name: trips-http
+    protocol: TCP
+    port: 80
+    targetPort: 80
