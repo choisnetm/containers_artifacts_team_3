@@ -1,26 +1,26 @@
-# USER-JAVA
+# TRIPVIEWER
 ---
 # POD
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user-java-deployment
+  name: tripviewer-deployment
   labels:
-    app: user-java
+    app: tripviewer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: user-java
+      app: tripviewer
   template:
     metadata:
       labels:
-        app: user-java
+        app: tripviewer
     spec:
       containers:
       # USERS
-      - name: user-java
-        image: registrynom9737.azurecr.io/openhack/user-java:latest
+      - name: tripviewer
+        image: registrynom9737.azurecr.io/openhack/tripviewer:1.0
         ports:
         - containerPort: 80
         resources:
@@ -35,13 +35,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: user-java
+  name: tripviewer
 spec:
-  type: ClusterIP #LoadBalancer
+  type: LoadBalancer #ClusterIP
   selector:
-    app: user-java
+    app: tripviewer
   ports:
-  - name: user-java-http
+  - name: tripviewer-http
     protocol: TCP
     port: 80
     targetPort: 80
