@@ -16,9 +16,10 @@ spec:
     metadata:
       labels:
         app: trips
+        namespace: api
     spec:
       containers:
-      # USERS
+      # TRIPS
       - name: trips
         image: registrynom9737.azurecr.io/openhack/trips:1.0
         ports:

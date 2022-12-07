@@ -42,7 +42,7 @@ metadata:
 spec:
   type: ClusterIP #LoadBalancer
   selector:
-    name: poi
+    app: poi
   ports:
   - name: poi-app-http
     protocol: TCP

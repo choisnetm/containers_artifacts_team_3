@@ -32,6 +32,7 @@ kubectl get nodes
 # --docker-password=$acrPassword
 
 #Deploy
+kubectl apply -f ./namespaces-deploy.yml
 kubectl apply -f ./trips-deploy.yaml
 
 # POD Content
