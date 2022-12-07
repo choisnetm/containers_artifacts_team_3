@@ -1,0 +1,49 @@
+# USER-JAVA
+---
+# POD
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: api
+  name: user-java-deployment
+  labels:
+    app: user-java
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-java
+  template:
+    metadata:
+      labels:
+        app: user-java
+    spec:
+      containers:
+      # USERS
+      - name: user-java
+        image: registrynom9737.azurecr.io/openhack/user-java:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+            memory: 64Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+---
+# SERVICE
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: api
+  name: user-java
+spec:
+  type: ClusterIP #LoadBalancer
+  selector:
+    app: user-java
+  ports:
+  - name: user-java-http
+    protocol: TCP
+    port: 80
+    targetPort: 80
