@@ -22,7 +22,7 @@ spec:
       - name: trips
         image: registrynom9737.azurecr.io/openhack/trips:1.0
         ports:
-        - containerPort: 80
+        - containerPort: 85
         resources:
           requests:
             cpu: 250m
@@ -37,11 +37,11 @@ kind: Service
 metadata:
   name: trips
 spec:
-  type: LoadBalancer #ClusterIP
+  type: ClusterIP #LoadBalancer
   selector:
     app: trips
   ports:
   - name: trips-http
     protocol: TCP
-    port: 80
-    targetPort: 80
+    port: 85
+    targetPort: 85
