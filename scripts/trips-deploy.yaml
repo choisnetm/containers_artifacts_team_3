@@ -30,6 +30,11 @@ spec:
           limits:
             cpu: 500m
             memory: 256Mi
+        env:
+        - name: CREDENTIAL_METHOD
+          value: username_and_password
+        - name: IDENTITY_CLIENT_ID
+          value: ""
         envFrom:
         - secretRef:
             name: sql-secrets
