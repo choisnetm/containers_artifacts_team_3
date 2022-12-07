@@ -1,0 +1,49 @@
+# TRIPVIEWER
+---
+# POD
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: front
+  name: tripviewer-deployment
+  labels:
+    app: tripviewer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tripviewer
+  template:
+    metadata:
+      labels:
+        app: tripviewer
+    spec:
+      containers:
+      # USERS
+      - name: tripviewer
+        image: registrynom9737.azurecr.io/openhack/tripviewer:1.0
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+            memory: 64Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+---
+# SERVICE
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: front
+  name: tripviewer
+spec:
+  type: ClusterIP #LoadBalancer
+  selector:
+    app: tripviewer
+  ports:
+  - name: tripviewer-http
+    protocol: TCP
+    port: 80
+    targetPort: 80
