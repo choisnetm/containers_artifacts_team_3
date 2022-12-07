@@ -12,7 +12,7 @@ roleRef:
 subjects:
 - kind: Group
   namespace: api
-  name: TO BE DEFINED
+  name: GRP_API_ID
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -26,7 +26,7 @@ roleRef:
 subjects:
 - kind: Group
   namespace: api
-  name: TO BE DEFINED
+  name: GRP_API_ID
 ---
 # WEB DEV
 apiVersion: rbac.authorization.k8s.io/v1
@@ -41,7 +41,7 @@ roleRef:
 subjects:
 - kind: Group
   namespace: web
-  name: TO BE DEFINED
+  name: GRP_WEB_ID
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -55,4 +55,4 @@ roleRef:
 subjects:
 - kind: Group
   namespace: web
-  name: TO BE DEFINED
+  name: GRP_WEB_ID
