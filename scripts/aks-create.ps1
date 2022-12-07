@@ -32,8 +32,14 @@ kubectl get nodes
 # --docker-password=$acrPassword
 
 #Deploy
-kubectl apply -f ./namespaces-deploy.yml
+kubectl apply -f ./namespaces-deploy.yaml
 kubectl apply -f ./trips-deploy.yaml
+kubectl apply -f ./user-java-deploy.yaml
+kubectl apply -f ./users-profiles-deploy.yaml
+kubectl apply -f ./poi-deploy.yaml
+
+
+kubectl apply -f ./tripviewer-deploy.yaml
 
 # POD Content
 # $podname = (kubectl get pods -l app=wanesy -o json | ConvertFrom-Json).items[0].metadata.name

@@ -5,6 +5,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: users-profiles-deployment
+  namespace: api
   labels:
     app: users-profiles
 spec:
