@@ -1,0 +1,49 @@
+# USERS-PROFILES
+---
+# POD
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: api
+  name: user-profile-deployment
+  labels:
+    app: users-profiles
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users-profiles
+  template:
+    metadata:
+      labels:
+        app: users-profiles
+    spec:
+      containers:
+      # USERS
+      - name: users-profiles
+        image: registrynom9737.azurecr.io/openhack/userprofile:1.0
+        ports:
+        - containerPort: 8081
+        resources:
+          requests:
+            cpu: 250m
+            memory: 64Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+---
+# SERVICE
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: api
+  name: users-profiles
+spec:
+  type: ClusterIP #LoadBalancer
+  selector:
+    app: users-profiles
+  ports:
+  - name: users-profiles-http
+    protocol: TCP
+    port: 80
+    targetPort: 8081
