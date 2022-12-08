@@ -17,6 +17,7 @@ az aks update -n $aksName -g $rgName --enable-aad
 #Deploy namespaces
 kubectl apply -f ./namespaces-deploy.yaml
 
+
 # Create api secrets
 ./aks-secrets.ps1
 
