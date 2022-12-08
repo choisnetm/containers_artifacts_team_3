@@ -30,6 +30,32 @@ spec:
           limits:
             cpu: 200m
             memory: 256Mi
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            secretKeyRef:
+              name: Environment
+              key: ASPNETCORE_ENVIRONMENT
+        - name: SQL_SERVER
+          valueFrom:
+            secretKeyRef:
+              name: SqlServer
+              key: SQL_SERVER
+        - name: SQL_DBNAME
+          valueFrom:
+            secretKeyRef:
+              name: SqlName
+              key: SQL_DBNAME
+        - name: SQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: SqlUser
+              key: SQL_USER
+        - name: SQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: SqlPassword
+              key: SQL_PASSWORD
         volumeMounts:
         - name: secrets-store01-inline
           mountPath: "/mnt/secrets-store"
