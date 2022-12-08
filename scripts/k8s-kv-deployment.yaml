@@ -6,27 +6,27 @@ metadata:
 spec:
   provider: azure
   secretObjects:                                 #SecretObject defines the desired state of synced K8s secret objects
-  - secretName: ASPNETCORE_ENVIRONMENT
+  - secretName: Environment
     type: Opaque
     data: 
     - objectName: Environment                    # name of the mounted content to sync. this could be the object name or object alias 
       key: ASPNETCORE_ENVIRONMENT
-  - secretName: SQL_SERVER
+  - secretName: SqlServer
     type: Opaque
     data: 
     - objectName: SqlServer
       key: SQL_SERVER
-  - secretName: SQL_DBNAME
+  - secretName: SqlName
     type: Opaque
     data: 
     - objectName: SqlName
       key: SQL_DBNAME
-  - secretName: SQL_USER
+  - secretName: SqlUser
     type: Opaque
     data: 
     - objectName: SqlUser
       key: SQL_USER
-  - secretName: SQL_PASSWORD
+  - secretName: SqlPassword
     type: Opaque
     data: 
     - objectName: SqlPassword
