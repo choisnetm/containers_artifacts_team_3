@@ -6,6 +6,7 @@ $aksName = 'openhack-aks-challenge3-bis'
 $rgName = 'teamResources'
 $webdevGroupName = 'web-dev'
 $apidevGroupName = 'api-dev'
+$admindevGroupName = 'admin-dev'
 $webDevUser = 'webdev@msftopenhack6950ops.onmicrosoft.com'
 $apiDevUser = 'apidev@msftopenhack6950ops.onmicrosoft.com'
 
@@ -20,6 +21,16 @@ Write-Host "AKS ID: $AKS_ID"
 
 
 ### GROUP CREATION
+Write-Host "Create ADMIN DEV Group"
+
+$WEBDEV_ID=$(az ad group create `
+--display-name $admindevGroupName `
+--mail-nickname admindev `
+--query id `
+-o tsv)
+
+Write-Host "WEB ADMIN Group Id: $WEBDEV_ID"
+
 Write-Host "Create WEB DEV Group"
 
 $WEBDEV_ID=$(az ad group create `
