@@ -1,3 +1,5 @@
+./az-login.ps1
+
 az login --username  'hacker5shc@msftopenhack6950ops.onmicrosoft.com' --password '7%XhRhoE3n'
 
 $aksName = 'openhack-aks-challenge3-bis'

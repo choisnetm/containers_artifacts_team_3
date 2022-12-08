@@ -1,4 +1,4 @@
-az login --username  'hacker5shc@msftopenhack6950ops.onmicrosoft.com' --password '7%XhRhoE3n'
+./az-login.ps1
 
 $acrName = 'registrynom9737'
 $aksName = 'openhack-aks'

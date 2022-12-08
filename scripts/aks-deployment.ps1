@@ -1,5 +1,5 @@
 # Authenth.
-az login --username  'hacker5shc@msftopenhack6950ops.onmicrosoft.com' --password '7%XhRhoE3n' --only-show-errors
+./az-login.ps1
 
 # Variables
 $acrName = 'registrynom9737'

@@ -1,3 +1,5 @@
+./az-login.ps1
+
 kubectl create secret `
     generic sql-secrets `
     --namespace=api `

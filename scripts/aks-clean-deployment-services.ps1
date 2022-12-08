@@ -1,4 +1,4 @@
-az login --username  'hacker5shc@msftopenhack6950ops.onmicrosoft.com' --password '7%XhRhoE3n' --show-only-errors
+./az-login.ps1
 
 kubectl delete deployment poi-deployment
 kubectl delete deployment trips-deployment
