@@ -7,10 +7,12 @@ $aksName = 'openhack-aks-challenge3-bis'
 $rgName = 'teamResources'
 
 # Retrieve aks credentials to run kubectl cmd
-az aks get-credentials --resource-group $rgName --name $aksName
+az aks get-credentials --resource-group teamResources --name openhack-aks-challenge3-bis
 
 # Update AKS to grant access to ACR.
 az aks update -n $aksName -g $rgName --attach-acr $acrName
+# Update AKS to enable AAD.
+az aks update -n $aksName -g $rgName --enable-aad
 
 #Deploy namespaces
 kubectl apply -f ./namespaces-deploy.yaml
