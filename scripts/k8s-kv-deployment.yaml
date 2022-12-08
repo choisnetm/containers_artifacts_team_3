@@ -9,27 +9,27 @@ spec:
   - secretName: environment
     type: Opaque
     data: 
-    - objectName: Environment                    # name of the mounted content to sync. this could be the object name or object alias 
+    - objectName: ASPNETCORE_ENVIRONMENT                    # name of the mounted content to sync. this could be the object name or object alias 
       key: ASPNETCORE_ENVIRONMENT
   - secretName: sqlserver
     type: Opaque
     data: 
-    - objectName: SqlServer
+    - objectName: SQL_SERVER
       key: SQL_SERVER
   - secretName: sqldbname
     type: Opaque
     data: 
-    - objectName: SqlName
+    - objectName: SQL_DBNAME
       key: SQL_DBNAME
   - secretName: sqluser
     type: Opaque
     data: 
-    - objectName: SqlUser
+    - objectName: SQL_USER
       key: SQL_USER
   - secretName: sqlpassword
     type: Opaque
     data: 
-    - objectName: SqlPassword
+    - objectName: SQL_PASSWORD
       key: SQL_PASSWORD
   parameters:
     usePodIdentity: "false"
