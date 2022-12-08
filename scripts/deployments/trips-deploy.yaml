@@ -26,10 +26,10 @@ spec:
         - containerPort: 80
         resources:
           requests:
-            cpu: 150m
+            cpu: 100m
             memory: 64Mi
           limits:
-            cpu: 250m
+            cpu: 150m
             memory: 256Mi
         env:
         - name: CREDENTIAL_METHOD

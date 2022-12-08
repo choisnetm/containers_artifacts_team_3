@@ -26,10 +26,10 @@ spec:
         - containerPort: 80
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 400Mi
           limits:
-            cpu: 50m
+            cpu: 150m
             memory: 400Mi
         env:
         - name: ASPNETCORE_ENVIRONMENT
