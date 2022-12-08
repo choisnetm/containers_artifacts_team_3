@@ -9,7 +9,7 @@ metadata:
   labels:
     app: users-profiles
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: users-profiles
@@ -19,17 +19,17 @@ spec:
         app: users-profiles
     spec:
       containers:
-      # USERS
+      # USERS-PROFILES
       - name: users-profiles
         image: registrynom9737.azurecr.io/openhack/userprofile:1.0
         ports:
         - containerPort: 80
         resources:
           requests:
-            cpu: 100m
+            cpu: 150m
             memory: 64Mi
           limits:
-            cpu: 200m
+            cpu: 250m
             memory: 256Mi
         env:
         - name: ASPNETCORE_ENVIRONMENT

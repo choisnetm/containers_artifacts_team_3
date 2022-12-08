@@ -9,7 +9,7 @@ metadata:
   labels:
     app: tripviewer
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: tripviewer
@@ -19,17 +19,17 @@ spec:
         app: tripviewer
     spec:
       containers:
-      # USERS
+      # TRIPVIEWER
       - name: tripviewer
         image: registrynom9737.azurecr.io/openhack/tripviewer:1.0
         ports:
         - containerPort: 80
         resources:
           requests:
-            cpu: 100m
+            cpu: 150m
             memory: 64Mi
           limits:
-            cpu: 200m
+            cpu: 250m
             memory: 256Mi
         env:
         - name: TRIPS_API_ENDPOINT

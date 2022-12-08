@@ -1,4 +1,4 @@
-# TRIPVIEWER
+# TRIPS
 ---
 # POD
 apiVersion: apps/v1
@@ -9,7 +9,7 @@ metadata:
   labels:
     app: trips
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: trips
@@ -26,10 +26,10 @@ spec:
         - containerPort: 80
         resources:
           requests:
-            cpu: 250m
+            cpu: 150m
             memory: 64Mi
           limits:
-            cpu: 500m
+            cpu: 250m
             memory: 256Mi
         env:
         - name: CREDENTIAL_METHOD
