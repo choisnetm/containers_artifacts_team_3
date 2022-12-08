@@ -15,26 +15,26 @@ az aks update -n $aksName -g $rgName --attach-acr $acrName
 az aks update -n $aksName -g $rgName --enable-aad
 
 #Deploy namespaces
-kubectl apply -f ./namespaces-deploy.yaml
+kubectl apply -f ./deployments/namespaces-deploy.yaml
 
 
 # Create api secrets
 ./aks-secrets.ps1
 
 # Deploy api namespace
-kubectl apply -f ./trips-deploy.yaml
-kubectl apply -f ./user-java-deploy.yaml
-kubectl apply -f ./users-profiles-deploy.yaml
-kubectl apply -f ./poi-deploy.yaml
+kubectl apply -f ./deployments/trips-deploy.yaml
+kubectl apply -f ./deployments/user-java-deploy.yaml
+kubectl apply -f ./deployments/users-profiles-deploy.yaml
+kubectl apply -f ./deployments/poi-deploy.yaml
 
 # Deploy web namespace
-kubectl apply -f ./tripviewer-deploy.yaml
+kubectl apply -f ./deployments/tripviewer-deploy.yaml
 
 # Deploy rbac role
-kubectl apply -f ./k8s-rbac.yaml
+kubectl apply -f ./deployments/k8s-rbac.yaml
 
 # Deploy rolebindings
-kubectl apply -f ./k8s-rolebinding.yaml
+kubectl apply -f ./deployments/k8s-rolebinding.yaml
 
 # Bing AKS roles to ADD groups
 ./ad-group-create.ps1

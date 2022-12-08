@@ -7,7 +7,7 @@ $dockerRegistryServer = 'registrynom9737.azurecr.io'
 $acrLogin = 'registrynom9737'
 $acrPassword = 'ArwO+4WI1pBwTVOWCzdlrfOckT00o+9z'
 $vnetSubnetId = '/subscriptions/c56594cd-3b57-4a5b-9cea-eebd774fdddd/resourceGroups/teamResources/providers/Microsoft.Network/virtualNetworks/vnet/subnets/aks-subnet'
-$admonGroupObjectIds = 09f565d5-d7ed-4bf8-b8c3-8fd22b80dc23
+$admonGroupObjectIds = '09f565d5-d7ed-4bf8-b8c3-8fd22b80dc23'
 
 # $aksExist = az aks show --name $aksName --resource-group $rgName
 
@@ -52,14 +52,14 @@ kubectl get nodes
 # --docker-password=$acrPassword
 
 #Deploy
-kubectl apply -f ./namespaces-deploy.yaml
-kubectl apply -f ./trips-deploy.yaml
-kubectl apply -f ./user-java-deploy.yaml
-kubectl apply -f ./users-profiles-deploy.yaml
-kubectl apply -f ./poi-deploy.yaml
+kubectl apply -f ./deployments/namespaces-deploy.yaml
+# kubectl apply -f ./deployments/trips-deploy.yaml
+# kubectl apply -f ./deployments/user-java-deploy.yaml
+# kubectl apply -f ./deployments/users-profiles-deploy.yaml
+# kubectl apply -f ./deployments/poi-deploy.yaml
 
 
-kubectl apply -f ./tripviewer-deploy.yaml
+# kubectl apply -f ./deployments/tripviewer-deploy.yaml
 
 # POD Content
 # $podname = (kubectl get pods -l app=wanesy -o json | ConvertFrom-Json).items[0].metadata.name
