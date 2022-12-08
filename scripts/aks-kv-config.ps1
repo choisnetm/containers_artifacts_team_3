@@ -17,3 +17,5 @@ az keyvault set-policy -n aks-openhack-team3-kv --key-permissions get --spn $id
 az keyvault set-policy -n aks-openhack-team3-kv --secret-permissions get --spn $id
 # set policy to access certs in your key vault
 az keyvault set-policy -n aks-openhack-team3-kv --certificate-permissions get --spn $id
+
+kubectl apply -f .\k8s-kv-deployment.yaml

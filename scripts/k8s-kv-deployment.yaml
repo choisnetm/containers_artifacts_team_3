@@ -14,22 +14,27 @@ spec:
       array:
         - |
           objectName: Environment
+          objectAlias: ASPNETCORE_ENVIRONMENT
           objectType: secret
           objectVersion: ""
         - |
           objectName: SqlServer
+          objectAlias: SQL_SERVER
           objectType: secret
           objectVersion: ""
         - |
           objectName: SqlName
+          objectAlias: SQL_DBNAME
           objectType: secret
           objectVersion: ""
         - |
           objectName: SqlUser
+          objectAlias: SQL_USER
           objectType: secret
           objectVersion: ""
         - |
           objectName: SqlPassword
+          objectAlias: SQL_PASSWORD
           objectType: secret
           objectVersion: ""
     tenantId: 8739222f-b2f0-4483-b5c7-5fb6d6c22c22              # The tenant ID of the key vault

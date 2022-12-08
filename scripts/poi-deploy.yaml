@@ -30,9 +30,17 @@ spec:
           limits:
             cpu: 200m
             memory: 256Mi
-        envFrom:
-        - secretRef:
-            name: sql-secrets
+        volumeMounts:
+        - name: secrets-store01-inline
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
+      volumes:
+        - name: secrets-store01-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: "azure-kvname-user-msi"
 
 ---
 apiVersion: v1
