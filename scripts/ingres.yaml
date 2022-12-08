@@ -44,16 +44,3 @@ spec:
                 name: tripviewer
                 port:
                   number: 80
-                  
----
-apiVersion: networking.k8s.io/v1
-kind: IngressClass
-metadata:
-  name: ingress-class
-spec:
-  controller: ingress-srv
-  parameters:
-    scope: Cluster
-    apiGroup: k8s.example.net
-    kind: ClusterIngressParameter
-    name: ingress-srv-1
