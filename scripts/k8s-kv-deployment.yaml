@@ -1,0 +1,35 @@
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: azure-kvname-user-msi
+spec:
+  provider: azure
+  parameters:
+    usePodIdentity: "false"
+    useVMManagedIdentity: "true"          # Set to true for using managed identity
+    userAssignedIdentityID: 1a0bad89-24e0-4452-8a17-97401e3f688a   # Set the clientID of the user-assigned managed identity to use
+    keyvaultName: aks-openhack-team3-kv        # Set to the name of your key vault
+    cloudName: ""                         # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
+    objects:  |
+      array:
+        - |
+          objectName: Environment
+          objectType: secret
+          objectVersion: ""
+        - |
+          objectName: SqlServer
+          objectType: secret
+          objectVersion: ""
+        - |
+          objectName: SqlName
+          objectType: secret
+          objectVersion: ""
+        - |
+          objectName: SqlUser
+          objectType: secret
+          objectVersion: ""
+        - |
+          objectName: SqlPassword
+          objectType: secret
+          objectVersion: ""
+    tenantId: 8739222f-b2f0-4483-b5c7-5fb6d6c22c22              # The tenant ID of the key vault
